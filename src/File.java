@@ -36,5 +36,4 @@ public class File {
 	public String toString() {
 		return "file name: " + fileName + "file type: " + fileType;
 	}
-
 }

@@ -24,8 +24,8 @@ public class BoardMessage extends Message {
 
 	public BoardMessage(String sender, String content, String subject) {
 		super(sender, content, subject);
-		this.sendDate = new Date();
-		this.priorityType = priorityType.REGULAR;
+		sendDate = new Date();
+		priorityType = PriorityType.REGULAR;
 	}
 
 //	methods
