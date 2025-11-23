@@ -20,11 +20,17 @@ public class TelegramMessage extends Message implements IDigital {
 //	constructors
 	public TelegramMessage(String sender, String content, String subject, Date sendDate) {
 		super(sender, content, subject, sendDate);
+
 	}
 
 	public TelegramMessage(String sender, String content, String subject) {
 		super(sender, content, subject);
 		messageType = MessageType.Text;
+	}
+
+	public TelegramMessage(String sender, String content, String subject, MessageType messageType) {
+		super(sender, content, subject);
+		this.messageType = messageType;
 	}
 
 //	interfaces
@@ -36,7 +42,7 @@ public class TelegramMessage extends Message implements IDigital {
 //	methods
 	@Override
 	public String toString() {
-		return super.toString() + "Message type: " + messageType;
+		return super.toString() + "\nMessage type: " + messageType + "\n";
 	}
 
 	public String generatePreview() {

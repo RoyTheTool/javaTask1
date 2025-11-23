@@ -6,8 +6,8 @@ public abstract class Message {
 //	fields
 	protected String sender;
 	protected String content;
-	protected String subject;
 	protected Date sendDate;
+	protected String subject;
 
 //	gets and sets
 	public String getSender() {
@@ -58,7 +58,7 @@ public abstract class Message {
 //	methods
 	@Override
 	public String toString() {
-		return "Sender: " + sender + ", Subject: " + subject + ", Content: " + content + ", Date: " + sendDate;
+		return "Sender: " + sender + "\nSubject: " + subject + "\nContent: " + content + "\nDate: " + sendDate;
 	}
 
 	public boolean find(ArrayList<String> words) {

@@ -1,8 +1,11 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class BoardMessage extends Message {
 //	fields
 	private PriorityType priorityType;
+
+	private ArrayList<String> recieversList = new ArrayList<>();
 
 //	gets and sets
 	public PriorityType getPriorityType() {
@@ -16,22 +19,33 @@ public class BoardMessage extends Message {
 		this.priorityType = priorityType;
 	}
 
+	public ArrayList<String> getRecieversList() {
+		return recieversList;
+	}
+
 //	constructors
-	public BoardMessage(String sender, String content, String subject, Date sendDate, PriorityType priorityType) {
+	public BoardMessage(String sender, String content, String subject, Date sendDate, PriorityType priorityType,
+			ArrayList<String> recieversList) {
 		super(sender, content, subject, sendDate);
 		setPriority(priorityType);
+		this.recieversList = recieversList;
 	}
 
 	public BoardMessage(String sender, String content, String subject) {
 		super(sender, content, subject);
 		sendDate = new Date();
 		priorityType = PriorityType.REGULAR;
+		recieversList.add("Shalev");
 	}
 
 //	methods
 	@Override
 	public String toString() {
-		return super.toString() + ", Priority: " + priorityType;
+		String recieverListString = "";
+		for (int i = 0; i < recieversList.size(); i++) {
+			recieverListString = recieverListString.concat(recieversList.get(i) + ", \n");
+		}
+		return super.toString() + "\nPriority: " + priorityType + "\n" + "Recivier List: \n" + recieverListString;
 	}
 
 	public boolean isUrgent() {

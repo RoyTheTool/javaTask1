@@ -4,7 +4,7 @@ import java.util.Date;
 public class EmailMessage extends Message implements IDigital {
 //	fields
 	private String subSubject;
-	private ArrayList<File> files;
+	private ArrayList<File> files = new ArrayList<>();
 
 //	gets and sets
 	public String getSubSubject() {
@@ -25,7 +25,7 @@ public class EmailMessage extends Message implements IDigital {
 		this.files = files;
 	}
 
-	public EmailMessage(String sender, String content, String subject) {
+	public EmailMessage(String sender, String content, String subject, String subSubject) {
 		super(sender, content, subject);
 		setSubSubject(subSubject);
 	}
@@ -39,7 +39,7 @@ public class EmailMessage extends Message implements IDigital {
 //	methods
 	@Override
 	public String toString() {
-		String emailMessageDetails = super.toString() + "sub subject: " + subSubject + "Files:\n";
+		String emailMessageDetails = super.toString() + "\nsub subject: " + subSubject + "\nFiles:\n";
 		for (File file : files) {
 			emailMessageDetails += "file name: " + file.getFileName() + "file type: " + file.getFileType() + "\n";
 		}
